@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kabinet>
+    <menteri>
+        <nama>Prabowo Subianto</nama>
+        <jabatan>Presiden</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Gibran Rakabuming Raka</nama>
+        <jabatan>Wakil Presiden</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Luhut Binsar Pandjaitan</nama>
+        <jabatan>Menteri Koordinator Bidang Kemaritiman dan Investasi</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Sri Mulyani</nama>
+        <jabatan>Menteri Keuangan</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Muhadjir Effendy</nama>
+        <jabatan>Menteri Koordinator Bidang Pembangunan Manusia dan Kebudayaan</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Erick Thohir</nama>
+        <jabatan>Menteri Badan Usaha Milik Negara</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Yasonna Laoly</nama>
+        <jabatan>Menteri Hukum dan HAM</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Retno Marsudi</nama>
+        <jabatan>Menteri Luar Negeri</jabatan>
+    </menteri>
+    <menteri>
+        <nama>Budi Gunadi Sadikin</nama>
+        <jabatan>Menteri Kesehatan</jabatan>
+    </menteri>
+</kabinet>

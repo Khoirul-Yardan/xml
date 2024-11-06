@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabinet Prabowo</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kabinet Prabowo 2024</h1>
+        <button id="loadData">Tampilkan Kabinet</button>
+        <div id="kabinetTable" class="table-container" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                    </tr>
+                </thead>
+                <tbody id="kabinet"></tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loadData').addEventListener('click', function () {
+    fetch('kabinet.xml')
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "application/xml");
+            const kabinetTbody = document.getElementById('kabinet');
+            kabinetTbody.innerHTML = ''; // Clear previous data
+
+            const menteriList = xmlDoc.getElementsByTagName('menteri');
+            for (let i = 0; i < menteriList.length; i++) {
+                const menteri = menteriList[i];
+                const nama = menteri.getElementsByTagName('nama')[0].textContent;
+                const jabatan = menteri.getElementsByTagName('jabatan')[0].textContent;
+
+                const row = `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${nama}</td>
+                        <td>${jabatan}</td>
+                    </tr>
+                `;
+                kabinetTbody.innerHTML += row;
+            }
+
+            document.getElementById('kabinetTable').style.display = 'block';
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+    </script>
+</body>
+</html>
